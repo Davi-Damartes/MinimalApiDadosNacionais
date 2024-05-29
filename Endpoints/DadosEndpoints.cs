@@ -19,15 +19,15 @@ namespace MinimalApiDadosNacionais.Endpoints
                     return Results.NotFound("CEP não encontrado!!!");
                 }
 
-                return Results.Ok(response);
-            })
-    .WithName("BuscaCep")
-    .WithOpenApi(x => new OpenApiOperation(x)
-    {
-        Summary = "Busca CEP",
-        Description = "Localização precisa e detalhes de CEPs de bairros nacionais.",
-        Tags = new List<OpenApiTag> { new OpenApiTag { Name = "CEP" } }
-    });
+            return Results.Ok(response);
+             })
+            .WithName("BuscaCep")
+            .WithOpenApi(x => new OpenApiOperation(x)
+            {
+                Summary = "Busca CEP",
+                Description = "Localização precisa e detalhes de CEPs de bairros nacionais.",
+                Tags = new List<OpenApiTag> { new OpenApiTag { Name = "CEP" } }
+            });
 
 
             app.MapGet("/BuscarCnpj{cnpj}", async ([FromRoute] string cnpj,
@@ -43,13 +43,13 @@ namespace MinimalApiDadosNacionais.Endpoints
 
                 return Results.Ok(response);
             })
-                .WithName("BuscaCnpj")
-                .WithOpenApi(x => new OpenApiOperation(x)
-                {
-                    Summary = "Buscar Cnpj",
-                    Description = "Recupera informações detalhadas sobre empresas nacionais por CNPJ",
-                    Tags = new List<OpenApiTag> { new OpenApiTag { Name = "CNPJ" } }
-                });
+            .WithName("BuscaCnpj")
+            .WithOpenApi(x => new OpenApiOperation(x)
+            {
+                Summary = "Buscar Cnpj",
+                Description = "Recupera informações detalhadas sobre empresas nacionais por CNPJ",
+                Tags = new List<OpenApiTag> { new OpenApiTag { Name = "CNPJ" } }
+            });
 
             app.MapGet("/BuscarDDD{ddd}", async ([FromRoute] string ddd,
                                                  [FromServices] IDadosNacionaisService service) =>
@@ -63,14 +63,13 @@ namespace MinimalApiDadosNacionais.Endpoints
 
                 return Results.Ok(response);
             })
-                .WithName("BuscaDDD")
-                .WithOpenApi(x => new OpenApiOperation(x)
-                {
-                    Summary = "Busca DDD",
-                    Description = "Consulta de dados relevantes com base no código de áreaDDD",
-                    Tags = new List<OpenApiTag> { new OpenApiTag { Name = "DDD" } }
-                });
-
+            .WithName("BuscaDDD")
+            .WithOpenApi(x => new OpenApiOperation(x)
+            {
+                Summary = "Busca DDD",
+                Description = "Consulta de dados relevantes com base no código de áreaDDD",
+                Tags = new List<OpenApiTag> { new OpenApiTag { Name = "DDD" } }
+            });
         }
     }
 }
