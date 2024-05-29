@@ -1,0 +1,6 @@
+@MinimalApiDadosNacionais_HostAddress = http://localhost:5159
+
+GET {{MinimalApiDadosNacionais_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
