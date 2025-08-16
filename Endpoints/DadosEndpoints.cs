@@ -51,10 +51,10 @@ namespace MinimalApiDadosNacionais.Endpoints
                 Tags = new List<OpenApiTag> { new OpenApiTag { Name = "CNPJ" } }
             });
 
-            app.MapGet("/BuscarDDD{ddd}", async ([FromRoute] string ddd,
+            app.MapGet("/BuscarDDD{numeroDDD}", async ([FromRoute] string numeroDDD,
                                                  [FromServices] IDadosNacionaisService service) =>
             {
-                var response = await service.BuscarDDD(ddd);
+                var response = await service.BuscarDDD(numeroDDD);
 
                 if (response == null)
                 {
